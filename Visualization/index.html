@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="//unpkg.com/3d-force-graph"></script>
+  </head>
+  <body>
+    <div id="dropdown-container">
+      <select id="algorithm-select">
+        <option value="pca">PCA</option>
+        <option value="tsne">t-SNE</option>
+        <option value="umap">UMAP</option>
+      </select>
+      <button onclick="fetchData()">Fetch Data</button>
+      <div class="performance-metric">
+        <label for="time-taken">Time Taken (seconds):</label>
+        <input type="text" id="time-taken" readonly />
+      </div>
+      <div class="performance-metric">
+        <label for="memory-used">Memory Used (MiB):</label>
+        <input type="text" id="memory-used" readonly />
+      </div>
+      <div class="performance-metric">
+        <label for="silhouette-score">Silhouette Score:</label>
+        <input type="text" id="silhouette-score" readonly />
+      </div>
+      <div class="slider-container">
+        <label for="distance-threshold">Distance Threshold:</label>
+        <input
+          type="range"
+          id="distance-threshold"
+          min="100"
+          max="500"
+          value="300"
+          oninput="updateThreshold(this.value)"
+        />
+        <span id="threshold-value">300</span>
+      </div>
+    </div>
+    <div id="loader"></div>
+    <div id="popup">
+      <img id="popup-img" src="" alt="Node Image" />
+    </div>
+    <div id="3d-graph" style="width: 100vw; height: 100vh"></div>
+    <script src="script.js"></script>
+  </body>
+</html>

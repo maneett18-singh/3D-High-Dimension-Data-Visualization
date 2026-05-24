@@ -1,0 +1,7 @@
+numpy
+torch
+umap-learn
+fastapi
+scikit-learn
+uvicorn
+nest-asyncio
